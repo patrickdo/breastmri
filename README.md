@@ -1,4 +1,4 @@
-breastmr
+breastmri
 ========
 
 Breast MRI Report Generator
