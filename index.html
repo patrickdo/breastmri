@@ -32,18 +32,20 @@
 
 <!-- LESION -->
 <div class="container" id="divLesion">
-	<div class="panel panel-heading">
-		<legend>Type of lesion</legend>
-		<div class="btn-group" data-toggle="buttons">
-			<label class="btn btn-primary" id="btnFocus">
-				<input type="radio" name="lesions">Focus
-			</label>
-			<label class="btn btn-primary" id="btnMass">
-				<input type="radio" name="lesions">Mass
-			</label>
-			<label class="btn btn-primary" id="btnNME">
-				<input type="radio" name="lesions">Non-mass enhancement
-			</label>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<legend>Type of lesion</legend>
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-primary" id="btnFocus">
+					<input type="radio" name="lesions">Focus
+				</label>
+				<label class="btn btn-primary" id="btnMass">
+					<input type="radio" name="lesions">Mass
+				</label>
+				<label class="btn btn-primary" id="btnNME">
+					<input type="radio" name="lesions">Non-mass enhancement
+				</label>
+			</div>
 		</div>
 	</div>
 </div>
@@ -52,9 +54,9 @@
 <div class="container" id="divFocus">
 	<legend>Focus</legend>
 	<div class="panel panel-default">
-		<div class="panel panel-heading">
+		<div class="panel-heading">
 		</div>
-		<div class="panel panel-body">
+		<div class="panel-body">
 		</div>
 	</div>
 </div>
@@ -157,49 +159,44 @@
 		</div>
 
 		<!-- NME-INTERNAL ENHANCEMENT -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h2 class="panel-title">Internal enhancement</h2>
-			</div>
-			<div class="panel-body">
-				<div class="btn-group" data-toggle="buttons">
-					<label class="btn btn-info" id="btnNHomo">
-						<input type="radio" name="nmeDist">Homogeneous
-					</label>
-					<label class="btn btn-info" id="btnNHetero">
-						<input type="radio" name="nmeDist">Heterogeneous
-					</label>
-					<label class="btn btn-info" id="btnClumped">
-						<input type="radio" name="nmeDist">Clumped
-					</label>
-					<label class="btn btn-info" id="btnClustered">
-						<input type="radio" name="nmeDist">Clustered ring
-					</label>
-				</div>
+		<div class="panel-heading">
+			<h2 class="panel-title">Internal enhancement</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-info" id="btnNHomo">
+					<input type="radio" name="nmeDist">Homogeneous
+				</label>
+				<label class="btn btn-info" id="btnNHetero">
+					<input type="radio" name="nmeDist">Heterogeneous
+				</label>
+				<label class="btn btn-info" id="btnClumped">
+					<input type="radio" name="nmeDist">Clumped
+				</label>
+				<label class="btn btn-info" id="btnClustered">
+					<input type="radio" name="nmeDist">Clustered ring
+				</label>
 			</div>
 		</div>
 
 		<!-- NME-T2 SIGNAL -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h2 class="panel-title">T2 signal</h2>
-			</div>
-			<div class="panel-body">
-			</div>
+		<div class="panel-heading">
+			<h2 class="panel-title">T2 signal</h2>
+		</div>
+		<div class="panel-body">
 		</div>
 
 		<!-- NME-KINETICS -->
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<h2 class="panel-title">Kinetics</h2>
-			</div>
-			<div class="panel-body">
-			</div>
+		<!-- Enhancement: Slow/Rapid
+				 Washout: Plateau/Progressive/Rapid -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Kinetics</h2>
+		</div>
+		<div class="panel-body">
 		</div>
 
 	</div>
 </div>
-
 
 <!-- REPORT -->
 <div class="container" id="divReport">
@@ -207,8 +204,6 @@
 		An error has occurred.
 	</div>
 </div>
-
-
 
 
 <hr>
