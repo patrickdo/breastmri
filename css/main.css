@@ -12,9 +12,19 @@ h1 {
 	display: none;
 }
 
+#textareaReport {
+    max-width: 70em;
+    height: 17em;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #ebebeb;
+    color: #000000;
+    overflow-y: auto;
+}
 
-
-
+#btnCirc {
+	margin-right: 5px;
+}
 
 
 

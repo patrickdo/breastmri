@@ -19,7 +19,7 @@
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	
+
 	  ga('create', 'UA-58003719-1', 'auto');
 	  ga('send', 'pageview');
 	</script>
@@ -28,17 +28,12 @@
 <BODY>
 
 <div class="h1 container">Breast MRI Report Generator</div>
-
 <hr>
 
-<!-- Lesion: focus, mass, non-mass enhancement -->
-<!-- 	Mass: shape (R/O/I), margin (circ, irreg, spiculated), internal enhancement (homo, hetero, rim, dark internal septations) -->
-<!-- 	Non-mass: distribution (focal, linear, segmental, regional, multiple regions, diffuse), internal enht (homo, hetero, clumped, clustered ring), t2 signal, kinetics -->
-
-
+<!-- LESION -->
 <div class="container" id="divLesion">
-	<div class="panel panel-footer">
-		<legend>Lesion</legend>
+	<div class="panel panel-heading">
+		<legend>Type of lesion</legend>
 		<div class="btn-group" data-toggle="buttons">
 			<label class="btn btn-primary" id="btnFocus">
 				<input type="radio" name="lesions">Focus
@@ -53,43 +48,175 @@
 	</div>
 </div>
 
-
+<!-- FOCUS -->
 <div class="container" id="divFocus">
 	<legend>Focus</legend>
-	<div class="panel panel-footer">
-		<legend>Shape</legend>
-		<legend>Margin</legend>
-		<legend>Internal enhancement</legend>
+	<div class="panel panel-default">
+		<div class="panel panel-heading">
+		</div>
+		<div class="panel panel-body">
+		</div>
 	</div>
 </div>
 
+<!-- MASS -->
 <div class="container" id="divMass">
 	<legend>Mass</legend>
-	<div class="panel panel-footer">
-		<legend>Shape</legend>
-		<legend>Margin</legend>
-		<legend>Internal enhancement</legend>
+	<div class="panel panel-default">
+
+		<!-- MASS-SHAPE -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Shape</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-success" id="btnRound">
+					<input type="radio" name="massShape">Round
+				</label>
+				<label class="btn btn-success" id="btnOval">
+					<input type="radio" name="massShape">Oval
+				</label>
+				<label class="btn btn-success" id="btnSIrreg">
+					<input type="radio" name="massShape">Irregular
+				</label>
+			</div>
+		</div>
+
+		<!-- MASS-MARGIN -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Margin</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-info" id="btnCirc">
+					<input type="radio" name="massMargin">Circumscribed
+				</label>
+				<label class="btn btn-info" id="btnMIrreg">
+					<input type="radio" name="massMargin">Irregular
+				</label>
+				<label class="btn btn-info" id="btnSpic">
+					<input type="radio" name="massMargin">Spiculated
+				</label>
+			</div>
+		</div>
+
+		<!-- MASS-INTERNAL ENHANCEMENT -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Internal enhancement</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-warning" id="btnMHomo">
+					<input type="radio" name="massEnht">Homogeneous
+				</label>
+				<label class="btn btn-warning" id="btnMHetero">
+					<input type="radio" name="massEnht">Heterogeneous
+				</label>
+				<label class="btn btn-warning" id="btnRim">
+					<input type="radio" name="massEnht">Rim enhancement
+				</label>
+				<label class="btn btn-warning" id="btnDark">
+					<input type="radio" name="massEnht">Dark internal septations
+				</label>
+			</div>
+		</div>
+
 	</div>
 </div>
 
+<!-- NON-MASS ENHANCEMENT -->
 <div class="container" id="divNME">
 	<legend>Non-mass enhancement</legend>
-	<div class="panel panel-footer">
-		<legend>Distribution</legend>
-		<legend>Internal enhancement</legend>
-		<legend>T2 signal</legend>
-		<legend>Kinetics</legend>
+	<div class="panel panel-default">
+
+		<!-- NME-DISTRIBUTION -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Distribution</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-success" id="btnFocal">
+					<input type="radio" name="nmeDist">Focal
+				</label>
+				<label class="btn btn-success" id="btnLinear">
+					<input type="radio" name="nmeDist">Linear
+				</label>
+				<label class="btn btn-success" id="btnSeg">
+					<input type="radio" name="nmeDist">Segmental
+				</label>
+				<label class="btn btn-success" id="btnReg">
+					<input type="radio" name="nmeDist">Regional
+				</label>
+				<label class="btn btn-success" id="btnMult">
+					<input type="radio" name="nmeDist">Multiple regions
+				</label>
+				<label class="btn btn-success" id="btnDiff">
+					<input type="radio" name="nmeDist">Diffuse
+				</label>
+			</div>
+		</div>
+
+		<!-- NME-INTERNAL ENHANCEMENT -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Internal enhancement</h2>
+			</div>
+			<div class="panel-body">
+				<div class="btn-group" data-toggle="buttons">
+					<label class="btn btn-info" id="btnNHomo">
+						<input type="radio" name="nmeDist">Homogeneous
+					</label>
+					<label class="btn btn-info" id="btnNHetero">
+						<input type="radio" name="nmeDist">Heterogeneous
+					</label>
+					<label class="btn btn-info" id="btnClumped">
+						<input type="radio" name="nmeDist">Clumped
+					</label>
+					<label class="btn btn-info" id="btnClustered">
+						<input type="radio" name="nmeDist">Clustered ring
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<!-- NME-T2 SIGNAL -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">T2 signal</h2>
+			</div>
+			<div class="panel-body">
+			</div>
+		</div>
+
+		<!-- NME-KINETICS -->
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-title">Kinetics</h2>
+			</div>
+			<div class="panel-body">
+			</div>
+		</div>
+
 	</div>
 </div>
 
+
+<!-- REPORT -->
+<div class="container" id="divReport">
+	<div class="editable" id="textareaReport" contenteditable="true">
+		An error has occurred.
+	</div>
+</div>
 
 
 
 
 <hr>
 <FOOTER>
-	<p>&copy; Patrick Do 2014</p>
-	<p><a href="http://www.acr.org/~/media/ACR/Documents/PDF/QualitySafety/Resources/BIRADS/Posters/BIRADS%20Reference%20Card_web_F.pdf" target="new">BI-RADS 5 Quick Reference Card</a></p>
+	<div class="container">
+		<p>&copy; Patrick Do 2014</p>
+		<p><a href="http://www.acr.org/~/media/ACR/Documents/PDF/QualitySafety/Resources/BIRADS/Posters/BIRADS%20Reference%20Card_web_F.pdf" target="new">BI-RADS 5 Quick Reference Card</a></p>
+	</div>
 </FOOTER>
 
 
