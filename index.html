@@ -15,14 +15,14 @@
 	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 	<title>Breast MRI Report Generator</title>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-	  ga('create', 'UA-58003719-1', 'auto');
-	  ga('require', 'displayfeatures');
-	  ga('send', 'pageview');
+		ga('create', 'UA-58003719-1', 'auto');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
 	</script>
 </HEAD>
 
@@ -36,16 +36,10 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<legend>Type of lesion</legend>
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-primary" id="btnFocus">
-					<input type="radio" name="lesions">Focus
-				</label>
-				<label class="btn btn-primary" id="btnMass">
-					<input type="radio" name="lesions">Mass
-				</label>
-				<label class="btn btn-primary" id="btnNME">
-					<input type="radio" name="lesions">Non-mass enhancement
-				</label>
+			<div class="btn-group" id="lesion">
+				<button class="btn btn-primary" type="radio" value="focus" id="btnFocus">Focus</button>
+				<button class="btn btn-primary" type="radio" value="mass" id="btnMass">Mass</button>
+				<button class="btn btn-primary" type="radio" value="nme" id="btnNME">Non-mass enhancement</button>
 			</div>
 		</div>
 	</div>
@@ -72,16 +66,10 @@
 			<h2 class="panel-title">Shape</h2>
 		</div>
 		<div class="panel-body">
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-success" id="btnRound">
-					<input type="radio" name="massShape">Round
-				</label>
-				<label class="btn btn-success" id="btnOval">
-					<input type="radio" name="massShape">Oval
-				</label>
-				<label class="btn btn-success" id="btnSIrreg">
-					<input type="radio" name="massShape">Irregular
-				</label>
+			<div class="btn-group" id="shape">
+				<button class="btn btn-success" type="radio" value="a round">Round</button>
+				<button class="btn btn-success" type="radio" value="an oval">Oval</button>
+				<button class="btn btn-success" type="radio" value="an irregular">Irregular</button>
 			</div>
 		</div>
 
@@ -90,16 +78,10 @@
 			<h2 class="panel-title">Margin</h2>
 		</div>
 		<div class="panel-body">
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-info" id="btnCirc">
-					<input type="radio" name="massMargin">Circumscribed
-				</label>
-				<label class="btn btn-info" id="btnMIrreg">
-					<input type="radio" name="massMargin">Irregular
-				</label>
-				<label class="btn btn-info" id="btnSpic">
-					<input type="radio" name="massMargin">Spiculated
-				</label>
+			<div class="btn-group" id="margin">
+				<button class="btn btn-info" type="radio" value="circumscribed">Circumscribed</button>
+				<button class="btn btn-info" type="radio" value="irregular">Irregular</button>
+				<button class="btn btn-info" type="radio" value="spiculated">Spiculated</button>
 			</div>
 		</div>
 
@@ -108,24 +90,17 @@
 			<h2 class="panel-title">Internal enhancement</h2>
 		</div>
 		<div class="panel-body">
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-warning" id="btnMHomo">
-					<input type="radio" name="massEnht">Homogeneous
-				</label>
-				<label class="btn btn-warning" id="btnMHetero">
-					<input type="radio" name="massEnht">Heterogeneous
-				</label>
-				<label class="btn btn-warning" id="btnRim">
-					<input type="radio" name="massEnht">Rim enhancement
-				</label>
-				<label class="btn btn-warning" id="btnDark">
-					<input type="radio" name="massEnht">Dark internal septations
-				</label>
+			<div class="btn-group" id="menht">
+				<button class="btn btn-warning" type="radio" value="homogeneous enhancement">Homogeneous</button>
+				<button class="btn btn-warning" type="radio" value="heterogeneous enhancement">Heterogeneous</button>
+				<button class="btn btn-warning" type="radio" value="rim enhancement">Rim enhancement</button>
+				<button class="btn btn-warning" type="radio" value="dark internal septations">Dark internal septations</button>
 			</div>
 		</div>
 
 	</div>
 </div>
+<!-- MASS -->
 
 <!-- NON-MASS ENHANCEMENT -->
 <div class="container" id="divNME">
@@ -137,25 +112,13 @@
 			<h2 class="panel-title">Distribution</h2>
 		</div>
 		<div class="panel-body">
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-success" id="btnFocal">
-					<input type="radio" name="nmeDist">Focal
-				</label>
-				<label class="btn btn-success" id="btnLinear">
-					<input type="radio" name="nmeDist">Linear
-				</label>
-				<label class="btn btn-success" id="btnSeg">
-					<input type="radio" name="nmeDist">Segmental
-				</label>
-				<label class="btn btn-success" id="btnReg">
-					<input type="radio" name="nmeDist">Regional
-				</label>
-				<label class="btn btn-success" id="btnMult">
-					<input type="radio" name="nmeDist">Multiple regions
-				</label>
-				<label class="btn btn-success" id="btnDiff">
-					<input type="radio" name="nmeDist">Diffuse
-				</label>
+			<div class="btn-group" id="dist">
+				<button class="btn btn-success" type="radio" value="a focal distribution">Focal</button>
+				<button class="btn btn-success" type="radio" value="a linear distribution">Linear</button>
+				<button class="btn btn-success" type="radio" value="a segmental distribution">Segmental</button>
+				<button class="btn btn-success" type="radio" value="a regional distribution">Regional</button>
+				<button class="btn btn-success" type="radio" value="multiple regions">Multiple regions</button>
+				<button class="btn btn-success" type="radio" value="diffusely">Diffuse</button>
 			</div>
 		</div>
 
@@ -164,19 +127,11 @@
 			<h2 class="panel-title">Internal enhancement</h2>
 		</div>
 		<div class="panel-body">
-			<div class="btn-group" data-toggle="buttons">
-				<label class="btn btn-info" id="btnNHomo">
-					<input type="radio" name="nmeDist">Homogeneous
-				</label>
-				<label class="btn btn-info" id="btnNHetero">
-					<input type="radio" name="nmeDist">Heterogeneous
-				</label>
-				<label class="btn btn-info" id="btnClumped">
-					<input type="radio" name="nmeDist">Clumped
-				</label>
-				<label class="btn btn-info" id="btnClustered">
-					<input type="radio" name="nmeDist">Clustered ring
-				</label>
+			<div class="btn-group" id="nenht">
+				<button class="btn btn-info" type="radio" value="homogeneous">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="clumped">Clumped</button>
+				<button class="btn btn-info" type="radio" value="clustered ring">Clustered ring</button>
 			</div>
 		</div>
 
@@ -185,25 +140,39 @@
 			<h2 class="panel-title">T2 signal</h2>
 		</div>
 		<div class="panel-body">
+			<div class="btn-group" id="t2">
+				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
+				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
+				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
+			</div>
 		</div>
 
 		<!-- NME-KINETICS -->
-		<!-- Enhancement: Slow/Rapid
-				 Washout: Plateau/Progressive/Rapid -->
 		<div class="panel-heading">
-			<h2 class="panel-title">Kinetics</h2>
+			<h2 class="panel-title">Kinetic Curve</h2>
 		</div>
 		<div class="panel-body">
+			<div class="container btn-group" id="initial">
+				<div>Initial phase:</div>
+				<button class="btn btn-danger" type="radio" value="slow">Slow</button>
+				<button class="btn btn-danger" type="radio" value="medium">Medium</button>
+				<button class="btn btn-danger" type="radio" value="fast">Fast</button>
+			</div>
+			<div class="container btn-group" id="delayed">
+				<div>Delayed phase:</div>
+				<button class="btn btn-danger" type="radio" value="persistent">Persistent</button>
+				<button class="btn btn-danger" type="radio" value="plateau">Plateau</button>
+				<button class="btn btn-danger" type="radio" value="washout">Washout</button>
+			</div>
 		</div>
 
 	</div>
 </div>
+<!-- NON-MASS ENHANCEMENT -->
 
 <!-- REPORT -->
 <div class="container" id="divReport">
-	<div class="editable" id="textareaReport" contenteditable="true">
-		An error has occurred.
-	</div>
+	<div class="editable" id="textareaReport" contenteditable="true"></div>
 </div>
 
 
