@@ -45,6 +45,8 @@
 	</div>
 </div>
 
+<!-- enclose the three main pathology type divs -->
+<section id="lesionSection">
 <!-- FOCUS -->
 <div class="container" id="divFocus">
 	<legend>Focus</legend>
@@ -83,7 +85,7 @@
 				<button class="btn btn-primary" type="radio" value="irregular">Irregular</button>
 				<button class="btn btn-primary" type="radio" value="spiculated">Spiculated</button>
 			</div>
-			</div>
+		</div>
 
 		<!-- MASS-T2 SIGNAL -->
 		<div class="panel-heading">
@@ -200,10 +202,17 @@
 	</div>
 </div>
 <!-- NON-MASS ENHANCEMENT -->
+</section>
 
 <!-- REPORT -->
 <div class="container" id="divReport">
 	<div class="editable" id="textareaReport" contenteditable="true"></div>
+	<button class="btn btn-success" id="btnSelectAll">
+		<strong>Select All</strong>
+	</button>
+	<button class="btn btn-warning" id="btnReset">
+		<strong>Reset</strong>
+	</button>
 </div>
 
 

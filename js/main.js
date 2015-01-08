@@ -46,32 +46,30 @@ b.getData = function() {
 	}
 };
 
-
-
-
-$('#btnMass').click(function() {
-	$('#divFocus').hide('slow');
-	$('#divMass').show('slow');
-	$('#divNME').hide('slow');
+// show/hide buttons for each type of pathology
+$('#lesion button').click(function() {
+	$('#div'+this.id.substr(3,5)).show('slow')
+		.siblings().hide('slow');
 });
 
-$('#btnFocus').click(function() {
-	$('#divFocus').show('slow');
-	$('#divMass').hide('slow');
-	$('#divNME').hide('slow');
-});
-
-$('#btnNME').click(function() {
-	$('#divFocus').hide('slow');
-	$('#divMass').hide('slow');
-	$('#divNME').show('slow');
-});
-
-// manually replicating bootstrap functionality to avoid race condition
+// manually replicating bootstrap radio functionality to avoid race condition
 $('button').click(function() {
-	$(this).addClass('active').siblings().removeClass('active');
+	$(this).addClass('active')
+		.siblings().removeClass('active');
 	$(this).blur();
 	b.update();
+});
+
+$('#btnSelectAll').click(function() {
+	document.getElementById('textareaReport').focus();
+	document.execCommand('SelectAll');
+});
+
+$('#btnReset').click(function() {
+	$('button').removeClass('active');
+	b.lesions[0].text = '';
+	b.update();
+	$('#lesionSection > div').hide('slow');
 });
 
 
