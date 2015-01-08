@@ -28,15 +28,18 @@ b.getData = function() {
 		b.lesions[0].text =
 			'There is ' + ($('#shape button.active').val() || '***') +
 			' mass with ' + ($('#margin button.active').val() || '***') +
-			' margins and ' + ($('#menht button.active').val() || '***') +
-			'.';
+			' margins. This mass is ' + ($('#mt2 button.active').val() || '***') +
+			' on T2-weighted images, with ' + ($('#menht button.active').val() || '***') +
+			' and exhibiting ' + ($('#minitial button.active').val() || '***') +
+			' initial phase and ' + ($('#mdelayed button.active').val() || '***') +
+			' delayed phase kinetics.';
 	} else if (lesionType === 'nme') {
 		b.lesions[0].text =
 			'There is non-mass enhancement in ' + ($('#dist button.active').val() || '***') +
-			' that appears ' + ($('#t2 button.active').val() || '***') +
+			' that appears ' + ($('#nt2 button.active').val() || '***') +
 			' on T2-weighted images, with ' + ($('#nenht button.active').val() || '***') +
-			' internal enhancement and exhibiting ' + ($('#initial button.active').val() || '***') +
-			' initial phase and ' + ($('#delayed button.active').val() || '***') +
+			' enhancement and exhibiting ' + ($('#ninitial button.active').val() || '***') +
+			' initial phase and ' + ($('#ndelayed button.active').val() || '***') +
 			' delayed phase kinetics.';
 	} else {
 		return '';

@@ -79,9 +79,21 @@
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="margin">
-				<button class="btn btn-info" type="radio" value="circumscribed">Circumscribed</button>
-				<button class="btn btn-info" type="radio" value="irregular">Irregular</button>
-				<button class="btn btn-info" type="radio" value="spiculated">Spiculated</button>
+				<button class="btn btn-primary" type="radio" value="circumscribed">Circumscribed</button>
+				<button class="btn btn-primary" type="radio" value="irregular">Irregular</button>
+				<button class="btn btn-primary" type="radio" value="spiculated">Spiculated</button>
+			</div>
+			</div>
+
+		<!-- MASS-T2 SIGNAL -->
+		<div class="panel-heading">
+			<h2 class="panel-title">T2 signal</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="mt2">
+				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
+				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
+				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
 			</div>
 		</div>
 
@@ -91,10 +103,29 @@
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="menht">
-				<button class="btn btn-warning" type="radio" value="homogeneous enhancement">Homogeneous</button>
-				<button class="btn btn-warning" type="radio" value="heterogeneous enhancement">Heterogeneous</button>
-				<button class="btn btn-warning" type="radio" value="rim enhancement">Rim enhancement</button>
-				<button class="btn btn-warning" type="radio" value="dark internal septations">Dark internal septations</button>
+				<button class="btn btn-info" type="radio" value="homogeneous internal enhancement">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous internal enhancement">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="rim enhancement">Rim enhancement</button>
+				<button class="btn btn-info" type="radio" value="dark internal septations">Dark internal septations</button>
+			</div>
+		</div>
+
+		<!-- MASS-KINETICS -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Kinetic Curve</h2>
+		</div>
+		<div class="panel-body">
+			<div class="container btn-group" id="minitial">
+				<div>Initial phase:</div>
+				<button class="btn btn-danger" type="radio" value="slow">Slow</button>
+				<button class="btn btn-danger" type="radio" value="medium">Medium</button>
+				<button class="btn btn-danger" type="radio" value="fast">Fast</button>
+			</div>
+			<div class="container btn-group" id="mdelayed">
+				<div>Delayed phase:</div>
+				<button class="btn btn-danger" type="radio" value="persistent">Persistent</button>
+				<button class="btn btn-danger" type="radio" value="plateau">Plateau</button>
+				<button class="btn btn-danger" type="radio" value="washout">Washout</button>
 			</div>
 		</div>
 
@@ -122,28 +153,28 @@
 			</div>
 		</div>
 
+		<!-- NME-T2 SIGNAL -->
+		<div class="panel-heading">
+			<h2 class="panel-title">T2 signal</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="nt2">
+				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
+				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
+				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
+			</div>
+		</div>
+
 		<!-- NME-INTERNAL ENHANCEMENT -->
 		<div class="panel-heading">
 			<h2 class="panel-title">Internal enhancement</h2>
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="nenht">
-				<button class="btn btn-info" type="radio" value="homogeneous">Homogeneous</button>
-				<button class="btn btn-info" type="radio" value="heterogeneous">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="homogeneous internal">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous internal">Heterogeneous</button>
 				<button class="btn btn-info" type="radio" value="clumped">Clumped</button>
 				<button class="btn btn-info" type="radio" value="clustered ring">Clustered ring</button>
-			</div>
-		</div>
-
-		<!-- NME-T2 SIGNAL -->
-		<div class="panel-heading">
-			<h2 class="panel-title">T2 signal</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="t2">
-				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
-				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
-				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
 			</div>
 		</div>
 
@@ -152,13 +183,13 @@
 			<h2 class="panel-title">Kinetic Curve</h2>
 		</div>
 		<div class="panel-body">
-			<div class="container btn-group" id="initial">
+			<div class="container btn-group" id="ninitial">
 				<div>Initial phase:</div>
 				<button class="btn btn-danger" type="radio" value="slow">Slow</button>
 				<button class="btn btn-danger" type="radio" value="medium">Medium</button>
 				<button class="btn btn-danger" type="radio" value="fast">Fast</button>
 			</div>
-			<div class="container btn-group" id="delayed">
+			<div class="container btn-group" id="ndelayed">
 				<div>Delayed phase:</div>
 				<button class="btn btn-danger" type="radio" value="persistent">Persistent</button>
 				<button class="btn btn-danger" type="radio" value="plateau">Plateau</button>
