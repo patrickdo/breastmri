@@ -24,3 +24,12 @@ h1 {
 #btnCirc {
 	margin-right: 5px;
 }
+
+#divLesion input {
+	width: 3em;
+	font-weight: 400;
+}
+
+select {
+	color: #000;
+}
