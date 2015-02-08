@@ -64,6 +64,7 @@ $('#btnSelectAll').click(function() {
 
 $('#btnReset').click(function() {
 	$('button').removeClass('active');
+	$('input').val('');
 	b.lesions[0].text = '';
 	b.update();
 	$('#lesionSection > div').hide('slow');
