@@ -26,13 +26,12 @@ b.getData = function() {
 		//
 	} else if (lesionType === 'mass') {
 		b.lesions[0].text =
-			'There is ' + ($('#shape button.active').val() || '***') +
+			'There is a T2-' + ($('#mt2 button.active').val() || '***') +
+			' ' + ($('#shape button.active').val() || '***') +
 			' mass with ' + ($('#margin button.active').val() || '***') +
-			' margins. This mass is ' + ($('#mt2 button.active').val() || '***') +
-			' on T2-weighted images, with ' + ($('#menht button.active').val() || '***') +
-			' and exhibiting ' + ($('#minitial button.active').val() || '***') +
-			' initial phase and ' + ($('#mdelayed button.active').val() || '***') +
-			' delayed phase kinetics.';
+			' margins and ' + ($('#menht button.active').val() || '***') +
+			'. The mass exhibits ' + ($('#minitial button.active').val() || '***') +
+			' enhancement with ' + ($('#mdelayed button.active').val() || '***') + '.';
 	} else if (lesionType === 'nme') {
 		b.lesions[0].text =
 			'There is non-mass enhancement in ' + ($('#dist button.active').val() || '***') +
