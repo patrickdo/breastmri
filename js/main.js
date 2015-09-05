@@ -72,5 +72,45 @@ $('#btnReset').click(function() {
 });
 
 
+// hover over first row labels to display reference image
+$(".hover").hover(
+	//hover() fn 1 = onmouseover
+	function(e) {
+		var imageFilenames =
+			{
+				"a segmental distribution":				"segmental",
+				"diffusely":							"diffuse",
+				"spiculated":							"spiculated",
+				"irregular":							"irregshape",
+				"Central disc protrusion":				"cdp",
+				"Left central disc protrusion":			"lcdp",
+				"Left subarticular disc protrusion":	"lsadp",
+				"Left foraminal disc protrusion":		"lfdp"
+			};
+
+		$("body").append(
+			"<p id='hoverImage'><img src='img/" +
+			imageFilenames[this.value] +
+			".jpg'/></p>");
+		$("#hoverImage")
+			.css("position", "absolute")
+			.css("top", (e.pageY - 15) + "px")
+			.css("left", (e.pageX - 50) + "px")
+			.css("transform", "scale(0.75)")
+			.fadeIn("fast");
+	},
+	// hover() fn 2 = onmouseout
+	function() {
+		$("#hoverImage").remove();
+	});
+
+// reference images follow mouse cursor
+$(".hover").mousemove(function (e) {
+	$("#hoverImage")
+		.css("top", (e.pageY - 15) + "px")
+		.css("left", (e.pageX - 20) + "px");
+});
+
+
 
 }); // END OF DOCUMENT.READY
