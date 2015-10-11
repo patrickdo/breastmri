@@ -50,7 +50,7 @@ $('#lesion button').click(function() {
 });
 
 // manually replicating bootstrap radio functionality to avoid race condition
-$('button').click(function() {
+$('.btn-group button').click(function() {
 	$(this).addClass('active')
 		.siblings().removeClass('active');
 	$(this).blur();
