@@ -31,7 +31,7 @@ b.getData = function() {
 			' mass with ' + ($('#margin button.active').val() || '***') +
 			' margins and ' + ($('#menht button.active').val() || '***') +
 			'. The mass exhibits ' + ($('#minitial button.active').val() || '***') +
-			' enhancement with ' + ($('#mdelayed button.active').val() || '***') + '.';
+			' enhancement ' + ($('#mdelayed button.active').val() || '***') + '.';
 	} else if (lesionType === 'nme') {
 		b.lesions[0].text =
 			'There is non-mass enhancement in ' + ($('#dist button.active').val() || '***') +
