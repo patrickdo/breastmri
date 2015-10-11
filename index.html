@@ -31,20 +31,40 @@
 <div class="h1 container">Breast MRI Report Generator</div>
 <hr>
 
-<!-- LESION -->
-<div class="container" id="divLesion">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<legend>Type of lesion</legend>
-			<div class="btn-group" id="lesion">
-				<button class="btn btn-primary" type="radio" value="mass" id="btnMass">Mass</button>
-				<button class="btn btn-primary" type="radio" value="nme" id="btnNME">Non-mass enhancement</button>
+<!-- TOP ROW -->
+<div class="container" id="topRow">
+	<div class="row">
+
+		<div class="col-xs-3" id="left">
+			<section id="lesionList">
+				<button class="btn btn-primary lesions" type="radio" id="lesion1">#1</button>
+			</section>
+
+			<div>
+				<button class="btn btn-success addrem" id="btnAddLesion">+</button>
+				<button class="btn btn-danger addrem" id="btnRemLesion">-</button>
+			</div>
+		</div>
+
+		<div class="col-xs-9" id="right">
+		<!-- LESION -->
+			<div id="divLesion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<legend>Type of lesion</legend>
+						<div class="btn-group" id="lesionType">
+							<button class="btn btn-primary" type="radio" value="mass" id="btnMass">Mass</button>
+							<button class="btn btn-primary" type="radio" value="nme" id="btnNME">Non-mass enhancement</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<!-- TOP ROW -->
 
-<!-- enclose the three main pathology type divs -->
+<!-- enclose the main pathology type divs -->
 <section id="lesionSection">
 
 <!-- MASS -->
@@ -192,6 +212,7 @@
 </div>
 <!-- NON-MASS ENHANCEMENT -->
 </section>
+
 
 <!-- REPORT -->
 <div class="container" id="divReport">

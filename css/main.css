@@ -10,6 +10,10 @@ h1 {
 	display: none;
 }
 
+.addrem {
+	margin-top: 10px;
+}
+
 #textareaReport {
 	max-width: 70em;
 	height: 17em;
@@ -23,4 +27,8 @@ h1 {
 
 #btnCirc {
 	margin-right: 5px;
+}
+
+.lesions {
+	border: 0px;
 }
