@@ -52,18 +52,6 @@
 	<legend>Mass</legend>
 	<div class="panel panel-default">
 
-		<!-- MASS-SHAPE -->
-		<div class="panel-heading">
-			<h2 class="panel-title">Shape</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="shape">
-				<button class="btn btn-success" type="radio" value="round">Round</button>
-				<button class="btn btn-success" type="radio" value="oval">Oval</button>
-				<button class="btn btn-success hover" type="radio" value="irregular">Irregular</button>
-			</div>
-		</div>
-
 		<!-- MASS-T2 SIGNAL -->
 		<div class="panel-heading">
 			<h2 class="panel-title">T2 signal</h2>
@@ -73,6 +61,18 @@
 				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
 				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
 				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
+			</div>
+		</div>
+
+		<!-- MASS-SHAPE -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Shape</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="shape">
+				<button class="btn btn-success" type="radio" value="round">Round</button>
+				<button class="btn btn-success" type="radio" value="oval">Oval</button>
+				<button class="btn btn-success hover" type="radio" value="irregular">Irregular</button>
 			</div>
 		</div>
 
@@ -94,8 +94,8 @@
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="menht">
-				<button class="btn btn-info" type="radio" value="homogeneous internal enhancement">Homogeneous</button>
-				<button class="btn btn-info" type="radio" value="heterogeneous internal enhancement">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="homogeneous enhancement">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous enhancement">Heterogeneous</button>
 				<button class="btn btn-info" type="radio" value="rim enhancement">Rim enhancement</button>
 				<button class="btn btn-info" type="radio" value="dark internal septations">Dark internal septations</button>
 			</div>
@@ -129,6 +129,18 @@
 	<legend>Non-mass enhancement</legend>
 	<div class="panel panel-default">
 
+		<!-- NME-T2 SIGNAL -->
+		<div class="panel-heading">
+			<h2 class="panel-title">T2 signal</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="nt2">
+				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
+				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
+				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
+			</div>
+		</div>
+
 		<!-- NME-DISTRIBUTION -->
 		<div class="panel-heading">
 			<h2 class="panel-title">Distribution</h2>
@@ -144,26 +156,14 @@
 			</div>
 		</div>
 
-		<!-- NME-T2 SIGNAL -->
-		<div class="panel-heading">
-			<h2 class="panel-title">T2 signal</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="nt2">
-				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
-				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
-				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
-			</div>
-		</div>
-
 		<!-- NME-INTERNAL ENHANCEMENT -->
 		<div class="panel-heading">
 			<h2 class="panel-title">Internal enhancement</h2>
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="nenht">
-				<button class="btn btn-info" type="radio" value="homogeneous internal">Homogeneous</button>
-				<button class="btn btn-info" type="radio" value="heterogeneous internal">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="homogeneous">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous">Heterogeneous</button>
 				<button class="btn btn-info" type="radio" value="clumped">Clumped</button>
 				<button class="btn btn-info" type="radio" value="clustered ring">Clustered ring</button>
 			</div>
