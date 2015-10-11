@@ -37,7 +37,6 @@
 		<div class="panel-heading">
 			<legend>Type of lesion</legend>
 			<div class="btn-group" id="lesion">
-				<button class="btn btn-primary" type="radio" value="focus" id="btnFocus">Focus</button>
 				<button class="btn btn-primary" type="radio" value="mass" id="btnMass">Mass</button>
 				<button class="btn btn-primary" type="radio" value="nme" id="btnNME">Non-mass enhancement</button>
 			</div>
@@ -47,33 +46,11 @@
 
 <!-- enclose the three main pathology type divs -->
 <section id="lesionSection">
-<!-- FOCUS -->
-<div class="container" id="divFocus">
-	<legend>Focus</legend>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-		</div>
-		<div class="panel-body">
-		</div>
-	</div>
-</div>
 
 <!-- MASS -->
 <div class="container" id="divMass">
 	<legend>Mass</legend>
 	<div class="panel panel-default">
-
-		<!-- MASS-T2 SIGNAL -->
-		<div class="panel-heading">
-			<h2 class="panel-title">T2 signal</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="mt2">
-				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
-				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
-				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
-			</div>
-		</div>
 
 		<!-- MASS-SHAPE -->
 		<div class="panel-heading">
@@ -84,6 +61,18 @@
 				<button class="btn btn-success" type="radio" value="round">Round</button>
 				<button class="btn btn-success" type="radio" value="oval">Oval</button>
 				<button class="btn btn-success hover" type="radio" value="irregular">Irregular</button>
+			</div>
+		</div>
+
+		<!-- MASS-T2 SIGNAL -->
+		<div class="panel-heading">
+			<h2 class="panel-title">T2 signal</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="mt2">
+				<button class="btn btn-warning" type="radio" value="hypointense">Hypointense</button>
+				<button class="btn btn-warning" type="radio" value="isointense">Isointense</button>
+				<button class="btn btn-warning" type="radio" value="hyperintense">Hyperintense</button>
 			</div>
 		</div>
 

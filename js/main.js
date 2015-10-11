@@ -22,9 +22,7 @@ b.update = function() {
 b.getData = function() {
 	var lesionType = $('#lesion button.active').val();
 
-	if (lesionType === 'focus') {
-		//
-	} else if (lesionType === 'mass') {
+	if (lesionType === 'mass') {
 		b.lesions[0].text =
 			'There is a T2-' + ($('#mt2 button.active').val() || '***') +
 			' ' + ($('#shape button.active').val() || '***') +
