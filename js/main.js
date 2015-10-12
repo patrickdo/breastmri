@@ -22,7 +22,8 @@ b.generateText = function() {
 	numLesions = Object.keys(b.lesions).length;
 	for (i = 0; i < numLesions; i++) {
 		//---MASS---
-		if (b.lesions[i+1].type === 'btnMass' && b.lesions[i+1].values.length > 0) {
+		if (b.lesions[i+1].type === 'btnMass') {
+		// if (b.lesions[i+1].type === 'btnMass' && b.lesions[i+1].values.length > 0) {
 			var mT2='', mShape='', mMargin='', mIE='', mKI='', mKD='';
 
 			// find T2
@@ -73,7 +74,8 @@ b.generateText = function() {
 				(mIE || '***') + ' . The mass exhibits ' + (mKI || '***') +
 				' enhancement ' + (mKD || '***') + '.';
 		// ---NME---
-		} else if (b.lesions[i+1].type === 'btnNME' && b.lesions[i+1].values.length > 0) {
+		} else if (b.lesions[i+1].type === 'btnNME') {
+		// } else if (b.lesions[i+1].type === 'btnNME' && b.lesions[i+1].values.length > 0) {
 			var nT2='', nDist='', nIE='', nKI='', nKD='';
 
 			// find T2
@@ -132,28 +134,6 @@ b.generateText = function() {
 
 	$('#textareaReport').html(report);
 
-	// var lesionType = $('#lesionType button.active').val();
-
-	// if (lesionType === 'mass') {
-	// 	b.lesions[1].text =
-	// 		'There is a T2-' + ($('#mt2 button.active').val() || '***') +
-	// 		' ' + ($('#shape button.active').val() || '***') +
-	// 		' mass with ' + ($('#margin button.active').val() || '***') +
-	// 		' margins and ' + ($('#menht button.active').val() || '***') +
-	// 		'. The mass exhibits ' + ($('#minitial button.active').val() || '***') +
-	// 		' enhancement ' + ($('#mdelayed button.active').val() || '***') + '.';
-	// } else if (lesionType === 'nme') {
-	// 	b.lesions[1].text =
-	// 		'There is non-mass enhancement in ' + ($('#dist button.active').val() || '***') +
-	// 		' that appears ' + ($('#nt2 button.active').val() || '***') +
-	// 		' on T2-weighted images, with ' + ($('#nenht button.active').val() || '***') +
-	// 		' enhancement and exhibiting ' + ($('#ninitial button.active').val() || '***') +
-	// 		' initial phase and ' + ($('#ndelayed button.active').val() || '***') +
-	// 		' delayed phase kinetics.';
-	// } else {
-	// 	return '';
-	// }
-	// $('#textareaReport').html(b.lesions[1].text);
 };
 
 b.clearButtons = function() {
@@ -217,14 +197,19 @@ $('#btnAddLesion').click(function() {
 	b.clearButtons();
 	$('#lesionSection > div').hide('slow');
 
+	// add object data
 	b.lesions[lesionNumber] = {type: '', values: [], text: ''};
 
+	// add button
 	$('#lesionList').append(
 		'<button class="btn btn-primary lesions" type="radio" id="lesion' +
 		lesionNumber + '">#' + lesionNumber + '</button>'
 	);
 
+	// select the newly added button
 	$('#lesionList button').last().addClass('active').siblings().removeClass('active');
+
+	b.generateText();
 });
 
 // remove lesion
