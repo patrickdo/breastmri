@@ -112,10 +112,13 @@ b.generateText = function() {
 			}
 
 			b.lesions[i+1].text =
-				'There is non-mass enhancement in ' + (nDist || '***') +
-				' that appears ' + (nT2 || '***') + ' on T2-weighted images, with ' +
+				'There is ' + (nDist || '***') + ' non-mass enhancement  that appears ' +
+				(nT2 || '***') + ' on T2-weighted images, with ' +
 				(nIE || '***') + ' enhancement and exhibiting ' + (nKI || '***') +
 				' initial phase and ' + (nKD || '***') + ' delayed phase kinetics.';
+
+			b.lesions[i+1].text = b.lesions[i+1].text
+				.replace(/is multiple/,'are multiple');
 
 		} else {
 			// return;
@@ -303,5 +306,6 @@ $(".hover").mousemove(function (e) {
 		.css("left", (e.pageX - 20) + "px");
 });
 
+b.generateText();
 
 }); // END OF DOCUMENT.READY
