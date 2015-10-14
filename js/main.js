@@ -150,9 +150,8 @@ b.generateText = function() {
 };
 
 b.clearButtons = function() {
-
 	$('#lesionSection button, #lesionType button').removeClass('active');
-	$('#size-loc input').val('');
+	$('#divSizeLoc input').val('');
 };
 
 b.loadData = function() {
@@ -170,6 +169,14 @@ b.loadData = function() {
 		$('#lesionSection > div').hide('slow');
 	}
 
+	// load size/loc
+	if (b.lesions[lesionNumber].size !== '') {
+		$('#inputSize').val(b.lesions[lesionNumber].size);
+	}
+	if (b.lesions[lesionNumber].loc !== '') {
+		$('#inputLoc').val(b.lesions[lesionNumber].loc);
+	}
+
 	// cycle through each descriptor in the set and select the button if it matches the saved b.lesion.values
 	$('#lesionSection div:visible button').each(function(index) {
 		if (b.lesions[lesionNumber].values.indexOf(index) > -1) {
@@ -183,7 +190,7 @@ b.saveData = function() {
 
 	// store lesion size/loc
 	b.lesions[lesionNumber].size = $('#inputSize').val();
-	b.lesions[lesionNumber].loc = $('#inputLocation').val();
+	b.lesions[lesionNumber].loc = $('#inputLoc').val();
 
 	// store lesion type
 	b.lesions[lesionNumber].type = $('#lesionType button.active').val();
