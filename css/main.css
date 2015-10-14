@@ -1,6 +1,9 @@
 /* ==========================================================================
 	 Author's custom styles
 	 ========================================================================== */
+input {
+	font-weight: 400;
+}
 
 h1 {
 	text-align: center;
@@ -23,14 +26,22 @@ h1 {
 	color: #000000;
 	overflow-y: auto;
 	font-weight: 400;
+	-moz-user-select: text;
+	-khtml-user-select: text;
+	-webkit-user-select: text;
+	-o-user-select: text;
+	user-select: text;
 }
 
-#btnCirc {
-	margin-right: 5px;
+button.lesions {
+	margin: 1px !important;
 }
 
-.lesions {
-	border: 0px;
+#lesionList button.active {
+	background-color: #c9302c;
+	border-color: #ec971f;
+	border-style: solid;
+	/*font-weight: 900;*/
 }
 
 .unselectable {

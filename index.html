@@ -37,7 +37,7 @@
 
 		<div class="col-xs-3" id="left">
 			<section id="lesionList">
-				<button class="btn btn-primary lesions active" type="radio" id="lesion1">#1</button>
+				<button class="btn btn-default lesions active" type="radio" id="lesion1">#1</button>
 			</section>
 
 			<div>
@@ -53,9 +53,16 @@
 					<div class="panel-heading">
 						<legend>Type of lesion</legend>
 						<div class="btn-group" id="lesionType">
-							<button class="btn btn-primary" type="radio" value="mass" id="btnMass">Mass</button>
-							<button class="btn btn-primary" type="radio" value="nme" id="btnNME">Non-mass enhancement</button>
+							<button class="btn btn-primary" type="radio" value="Mass" id="btnMass">Mass</button>
+							<button class="btn btn-primary" type="radio" value="NME" id="btnNME">Non-mass enhancement</button>
 						</div>
+					</div>
+					<div class="panel-heading">
+						<!-- <legend>Size/Location</legend> -->
+						<!-- <h2 class="panel-title">Size/Location</h2> -->
+							<input type="text" size="16" placeholder="Size, e.g. 1.7 x 1.3 cm" id="inputSize"></input>
+							in the
+							<input type="text" size="35" placeholder="Location, e.g. left breast 3 o'clock position" id="inputLocation"></input>
 					</div>
 				</div>
 			</div>
@@ -69,7 +76,7 @@
 
 <!-- MASS -->
 <div class="container unselectable" id="divMass">
-	<legend>Mass</legend>
+	<legend><span></span>Mass</legend>
 	<div class="panel panel-default">
 
 		<!-- MASS-T2 SIGNAL -->
@@ -146,7 +153,7 @@
 
 <!-- NON-MASS ENHANCEMENT -->
 <div class="container unselectable" id="divNME">
-	<legend>Non-mass enhancement</legend>
+	<legend><span></span>Non-mass enhancement</legend>
 	<div class="panel panel-default">
 
 		<!-- NME-T2 SIGNAL -->
