@@ -384,6 +384,22 @@ b.initHints = function () {
 			'Diffuse': function() {
 				po.title = 'Distribution: <b>Diffuse</b>';
 				po.content = '<img src="img/diffuse.jpg">';
+			},
+			'Homogeneous': function() {
+				po.title = 'Internal Enhancement:<br><b>Homogeneous</b>';
+				po.content = 'Confluent uniform enhancement';
+			},
+			'Heterogeneous': function() {
+				po.title = 'Internal Enhancement:<br><b>Heterogeneous</b>';
+				po.content = 'Nonuniform enhancement in a random pattern';
+			},
+			'Rim enhancement': function() {
+				po.title = 'Internal Enhancement:<br><b>Rim enhancement</b>';
+				po.content = 'Enhancement more pronounced at the periphery of mass';
+			},
+			'Dark internal septations': function() {
+				po.title = 'Internal Enhancement:<br><b>Dark internal septations</b>';
+				po.content = 'Dark nonenhancing lines within a mass';
 			}
 		};
 
@@ -397,7 +413,11 @@ b.initHints = function () {
 
 // show popovers on hover
 $('#lesionSection div button').hover(function() {
-	$(this).popover('show');
+	if ($('#cbHints').is(':checked')) {
+		$(this).popover('show');
+	} else {
+		return;
+	}
 }, function() {
 	$(this).popover('hide');
 });
