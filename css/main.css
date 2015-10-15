@@ -44,6 +44,11 @@ button.lesions {
 	/*font-weight: 900;*/
 }
 
+img {
+	max-height: 100%;
+	max-width: 100%;
+}
+
 .popover {
 	font-weight: 300;
 }
