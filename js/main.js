@@ -13,7 +13,8 @@ var b = {
 				text: ''
 			}
 		}
-	};
+	},
+	hints = {};
 
 $(document).ready(function() {
 
@@ -146,7 +147,6 @@ b.generateText = function() {
 	}
 
 	$('#textareaReport').html(report);
-
 };
 
 b.clearButtons = function() {
@@ -213,21 +213,6 @@ $('#lesionList').on('click', 'button', function() {
 	b.generateText();
 });
 
-// on clicking a descriptor button
-$('.btn-group button').click(function() {
-	// manually replicating bootstrap radio functionality to avoid race condition
-	$(this).addClass('active')
-		.siblings().removeClass('active');
-	$(this).blur();
-	if ((this.id === 'btnMass') || (this.id === 'btnNME')) {
-		$('#div'+this.id.substr(3,5)).show().siblings().hide();
-		$('#nt2 button,#dist button').removeClass('active');
-	}
-	b.saveData();
-	b.loadData();
-	b.generateText();
-});
-
 // add lesion
 $('#btnAddLesion').click(function() {
 	$(this).blur();
@@ -279,6 +264,21 @@ $('#btnRemLesion').click(function() {
 	}
 });
 
+// on clicking a descriptor button
+$('.btn-group button').click(function() {
+	// manually replicating bootstrap radio functionality to avoid race condition
+	$(this).addClass('active')
+		.siblings().removeClass('active');
+	$(this).blur();
+	if ((this.id === 'btnMass') || (this.id === 'btnNME')) {
+		$('#div'+this.id.substr(3,5)).show().siblings().hide();
+		$('#nt2 button,#dist button').removeClass('active');
+	}
+	b.saveData();
+	b.loadData();
+	b.generateText();
+});
+
 // Select All
 $('#btnSelectAll').click(function() {
 	document.getElementById('textareaReport').focus();
@@ -291,44 +291,44 @@ $('#btnReset').click(function() {
 	$('#lesionSection > div').hide('slow');
 });
 
-// hover over first row labels to display reference image
-$(".hover").hover(
-	//hover() fn 1 = onmouseover
-	function(e) {
-		var imageFilenames =
-			{
-				"a segmental distribution":				"segmental",
-				"diffusely":							"diffuse",
-				"spiculated":							"spiculated",
-				"irregular":							"irregshape",
-				"Central disc protrusion":				"cdp",
-				"Left central disc protrusion":			"lcdp",
-				"Left subarticular disc protrusion":	"lsadp",
-				"Left foraminal disc protrusion":		"lfdp"
-			};
+// // hover over first row labels to display reference image
+// $(".hover").hover(
+// 	//hover() fn 1 = onmouseover
+// 	function(e) {
+// 		var imageFilenames =
+// 			{
+// 				"a segmental distribution":				"segmental",
+// 				"diffusely":							"diffuse",
+// 				"spiculated":							"spiculated",
+// 				"irregular":							"irregshape",
+// 				"Central disc protrusion":				"cdp",
+// 				"Left central disc protrusion":			"lcdp",
+// 				"Left subarticular disc protrusion":	"lsadp",
+// 				"Left foraminal disc protrusion":		"lfdp"
+// 			};
 
-		$("body").append(
-			"<p id='hoverImage'><img src='img/" +
-			imageFilenames[this.value] +
-			".jpg'/></p>");
-		$("#hoverImage")
-			.css("position", "absolute")
-			.css("top", (e.pageY - 15) + "px")
-			.css("left", (e.pageX - 50) + "px")
-			.css("transform", "scale(0.75)")
-			.fadeIn("fast");
-	},
-	// hover() fn 2 = onmouseout
-	function() {
-		$("#hoverImage").remove();
-	});
+// 		$("body").append(
+// 			"<p id='hoverImage'><img src='img/" +
+// 			imageFilenames[this.value] +
+// 			".jpg'/></p>");
+// 		$("#hoverImage")
+// 			.css("position", "absolute")
+// 			.css("top", (e.pageY - 15) + "px")
+// 			.css("left", (e.pageX - 50) + "px")
+// 			.css("transform", "scale(0.75)")
+// 			.fadeIn("fast");
+// 	},
+// 	// hover() fn 2 = onmouseout
+// 	function() {
+// 		$("#hoverImage").remove();
+// 	});
 
-// reference images follow mouse cursor
-$(".hover").mousemove(function (e) {
-	$("#hoverImage")
-		.css("top", (e.pageY - 15) + "px")
-		.css("left", (e.pageX - 20) + "px");
-});
+// // reference images follow mouse cursor
+// $(".hover").mousemove(function (e) {
+// 	$("#hoverImage")
+// 		.css("top", (e.pageY - 15) + "px")
+// 		.css("left", (e.pageX - 20) + "px");
+// });
 
 // auto-update size/loc
 $('body').on('keyup', 'input', function() {
@@ -336,7 +336,73 @@ $('body').on('keyup', 'input', function() {
 	b.generateText();
 });
 
+// initialize hints
+b.initHints = function () {
+	$('#lesionSection div button').each(function(i) {
+		// initialize popover for each button
+		$(this).popover({
+			container: 'body',
+			placement: 'top',
+			html: true,
+			trigger: 'manual'
+		});
 
+		var	thisBtn = this,	// saving the element because 'this' will point to 'cases' in the lookup table
+			po = $(this).data('bs.popover').options;
+
+		// lookup table
+		var cases = {
+			'Round': function() {
+				po.title = 'Shape: <b>Round</b>';
+				po.content = 'Spherical, ball-shaped, circular, or globular';
+			},
+			'Oval': function() {
+				po.title = 'Shape: <b>Oval</b>';
+				po.content = 'Elliptical or egg-shaped (may include 2 or 3 undulations, i.e. "gently lobulated" or "macrolobulated")';
+			},
+			'Irregular': function() {
+				if (thisBtn.closest('div').id === "shape") {
+					po.title = 'Shape: <b>Irregular</b>';
+					po.content = 'Neither round nor oval<br><img src="img/irregshape.jpg">';
+				} else if (thisBtn.closest('div').id === "margin") {
+					po.title = 'Margin: <b>Irregular</b>';
+					po.content = 'Uneven margin can be round or jagged (not smooth or spiculated)';
+				}
+			},
+			'Circumscribed': function() {
+				po.title = 'Margin: <b>Circumscribed</b>';
+				po.content = 'A margin that is well defined or sharp, with an abrupt transition between the lesion and surrounding tissue';
+			},
+			'Spiculated': function() {
+				po.title = 'Margin: <b>Spiculated</b>';
+				po.content = 'Margin is formed or characterized by sharp lines projecting from the mass<br><img src="img/spiculated.jpg" align="center">';
+			},
+			'Segmental': function() {
+				po.title = 'Distribution: <b>Segmental</b>';
+				po.content = '<img src="img/segmental.jpg">';
+			},
+			'Diffuse': function() {
+				po.title = 'Distribution: <b>Diffuse</b>';
+				po.content = '<img src="img/diffuse.jpg">';
+			}
+		};
+
+		// run through lookup table
+		if (cases[this.innerHTML]) {
+			cases[this.innerHTML]();
+		}
+
+	});
+};
+
+// show popovers on hover
+$('#lesionSection div button').hover(function() {
+	$(this).popover('show');
+}, function() {
+	$(this).popover('hide');
+});
+
+b.initHints();
 b.generateText();
 
 }); // END OF DOCUMENT.READY

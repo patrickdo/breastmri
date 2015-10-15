@@ -44,6 +44,10 @@ button.lesions {
 	/*font-weight: 900;*/
 }
 
+.popover {
+	font-weight: 300;
+}
+
 .unselectable {
 	-moz-user-select: -moz-none;
 	-khtml-user-select: none;
