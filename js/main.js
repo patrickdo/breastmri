@@ -129,10 +129,18 @@ b.generateText = function() {
 			}
 
 			b.lesions[i+1].text =
-				'There is ' + (nDist || '***') + ' non-mass enhancement  that appears ' +
-				(nT2 || '***') + ' on T2-weighted images, with ' +
-				(nIE || '***') + ' enhancement and exhibiting ' + (nKI || '***') +
-				' initial phase and ' + (nKD || '***') + ' delayed phase kinetics.';
+				'There is ' +
+				(nDist + ' ' || '') +
+				(nT2 ? 'T2 ' + nT2 + ' ' : '') +
+				(nIE + ' ' || '') +
+				'non-mass enhancement. ' +
+				(
+					(nKI === '' && nKD === '') ? '' : 'The non-mass enhancement exhibits ' +
+					(nKI + ' ' || '') +
+					'enhancement' +
+					(' ' + nKD || '') +
+					'.'
+				);
 
 			b.lesions[i+1].text = b.lesions[i+1].text
 				.replace(/is multiple/,'are multiple');
