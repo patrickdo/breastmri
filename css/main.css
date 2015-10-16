@@ -5,6 +5,16 @@ input {
 	font-weight: 400;
 }
 
+#inputLoc {
+	width: 100%;
+	max-width: 20em;
+}
+
+#inputSize {
+	width: 12em;
+	max-width: 100%;
+}
+
 h1 {
 	text-align: center;
 }
