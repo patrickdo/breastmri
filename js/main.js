@@ -287,13 +287,22 @@ $('#btnRemLesion').click(function() {
 // on clicking a descriptor button
 $('.btn-group button').click(function() {
 	// manually replicating bootstrap radio functionality to avoid race condition
-	$(this).addClass('active')
-		.siblings().removeClass('active');
+
+	if ($(this).hasClass('active')) {
+		$(this).removeClass('active');
+	} else {
+		$(this).addClass('active')
+			.siblings().removeClass('active');
+	}
+
 	$(this).blur();
+
 	if ((this.id === 'btnMass') || (this.id === 'btnNME')) {
+		$(this).addClass('active');	// re-adding, because class 'active' is removed if it was already present
 		$('#div'+this.id.substr(3,5)).show().siblings().hide();
 		$('#nt2 button,#dist button').removeClass('active');
 	}
+
 	b.saveData();
 	b.loadData();
 	b.generateText();
