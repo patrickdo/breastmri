@@ -72,10 +72,22 @@ b.generateText = function() {
 			}
 
 			b.lesions[i+1].text =
-				'There is a T2 ' + (mT2 || '***') + ' ' + (mShape || '***') +
-				' mass with ' + (mMargin || '***') + ' margins and ' +
-				(mIE || '***') + '. The mass exhibits ' + (mKI || '***') +
-				' enhancement ' + (mKD || '***') + '.';
+				'There is a ' +
+				(mT2 ? 'T2 ' + mT2 + ' ' : '') +
+				(mShape + ' ' || '') +
+				'mass' +
+				((mMargin === '' && mIE === '') ? '' : ' with ') +
+				((mMargin !== '' && mIE !== '') ? mMargin + ' and ' + mIE : (mMargin || '') + (mIE || '')) +
+				'. ' +
+				(
+					(mKI === '' && mKD === '') ? '' : 'The mass exhibits ' +
+					(mKI + ' ' || '') +
+					'enhancement' +
+					(' ' + mKD || '') +
+					'.'
+				);
+
+
 		// ---NME---
 		} else if (b.lesions[i+1].type === 'NME') {
 		// } else if (b.lesions[i+1].type === 'btnNME' && b.lesions[i+1].values.length > 0) {
