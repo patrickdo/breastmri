@@ -159,7 +159,7 @@ b.generateText = function() {
 				.replace(/(mass( enhancement)?)/, '$1 measuring ' + b.lesions[i+1].size);
 		}
 
-		report += (i+1) + ': ' + b.lesions[i+1].text + '<br>';
+		report += (i+1) + '. ' + b.lesions[i+1].text + '<br>';
 	} // END CYCLE
 
 	for (i = 0; i < numLesions; i++) {
