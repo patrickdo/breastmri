@@ -279,8 +279,12 @@ $('#btnRemLesion').click(function() {
 		$('#lesionList button').first().addClass('active').siblings().removeClass('active');
 		b.loadData();
 		b.generateText();
-	} else {
-		return;
+	} else {	// if there is only one lesion
+		// return;
+		b.clearButtons();
+		b.lesions[1].type = b.lesions[1].size = b.lesions[1].loc = b.lesions[1].text = '';
+		b.lesions[1].values = [];
+		b.generateText();
 	}
 });
 
