@@ -35,19 +35,26 @@
 <div class="container unselectable" id="topRow">
 	<div class="row">
 
+	<!-- LEFT SIDE -->
 		<div id="left" class="col-xs-3 col-md-2 col-lg-2">
-			<section id="lesionList">
-				<button class="btn btn-default lesions active" type="radio" id="lesion1">#1</button>
-			</section>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<legend>Lesion #</legend>
+					<section id="lesionList">
+						<button class="btn btn-default lesions active" type="radio" id="lesion1">#1</button>
+					</section>
 
-			<div>
-				<button class="btn btn-success addrem" id="btnAddLesion">+</button>
-				<button class="btn btn-danger addrem" id="btnRemLesion">-</button>
+					<div>
+						<button class="btn btn-success addrem" id="btnAddLesion">+</button>
+						<button class="btn btn-danger addrem" id="btnRemLesion">-</button>
+					</div>
+				</div>
 			</div>
 		</div>
 
+		<!-- RIGHT SIDE -->
 		<div id="right" class="col-xs-9 col-md-10 col-lg-10">
-		<!-- LESION -->
+			<!-- LESION TYPE -->
 			<div id="divLesion">
 				<div class="panel panel-default">
 					<div class="panel-heading">
