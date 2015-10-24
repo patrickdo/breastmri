@@ -5,8 +5,7 @@
 
 var b = {
 		lesions: {}
-	},
-	hints = {};
+	};
 
 b.lesions[1] = {
 	size: ['', '', ''],
@@ -19,7 +18,9 @@ b.lesions[1] = {
 $(document).ready(function() {
 
 b.generateText = function() {
-	var i, j, report = '', numLesions;
+	var i, j, report = '', numLesions, tempSizes = [];
+	var mT2='', mShape='', mMargin='', mIE='', mKI='', mKD='';
+	var nT2='', nDist='', nIE='', nKI='', nKD='';
 
 	// CYCLE through lesions
 	numLesions = Object.keys(b.lesions).length;
@@ -27,7 +28,7 @@ b.generateText = function() {
 		//---MASS---
 		if (b.lesions[i+1].type === 'Mass') {
 		// if (b.lesions[i+1].type === 'btnMass' && b.lesions[i+1].values.length > 0) {
-			var mT2='', mShape='', mMargin='', mIE='', mKI='', mKD='';
+			mT2 = mShape = mMargin = mIE = mKI = mKD='';
 
 			// find T2
 			for (j = 0; j < 3; j++) {
@@ -91,7 +92,7 @@ b.generateText = function() {
 		// ---NME---
 		} else if (b.lesions[i+1].type === 'NME') {
 		// } else if (b.lesions[i+1].type === 'btnNME' && b.lesions[i+1].values.length > 0) {
-			var nT2='', nDist='', nIE='', nKI='', nKD='';
+			nT2 = nDist = nIE = nKI = nKD='';
 
 			// find T2
 			for (j = 0; j < 3; j++) {
@@ -155,7 +156,7 @@ b.generateText = function() {
 		}
 
 		if (b.lesions[i+1].size.toString() !== ',,') {
-			var tempSizes = [];
+			tempSizes = [];
 
 			for (j = 0; j < 3; j++) {
 				if (b.lesions[i+1].size[j] !== '') {
@@ -169,10 +170,6 @@ b.generateText = function() {
 
 		report += (i+1) + '. ' + b.lesions[i+1].text + '<br>';
 	} // END CYCLE
-
-	for (i = 0; i < numLesions; i++) {
-		// report += (i+1) + ': ' + b.lesions[i+1].text + '<br>';
-	}
 
 	$('#textareaReport').html(report);
 };
@@ -292,7 +289,6 @@ $('#btnRemLesion').click(function() {
 		b.loadData();
 		b.generateText();
 	} else {	// if there is only one lesion
-		// return;
 		b.clearButtons();
 		b.lesions[1].type = b.lesions[1].loc = b.lesions[1].text = '';
 		b.lesions[1].size = ['','',''];
@@ -345,7 +341,7 @@ $('body').on('keyup', 'input', function() {
 
 // initialize hints
 b.initHints = function () {
-	$('#lesionSection div button').each(function(i) {
+	$('#lesionSection div button').each(function() {
 		// initialize popover for each button
 		$(this).popover({
 			container: 'body',
