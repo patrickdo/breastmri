@@ -4,17 +4,17 @@
 "use strict";
 
 var b = {
-		lesions: {
-			1: {
-				size: '',
-				loc: '',
-				type: '',
-				values: [],
-				text: ''
-			}
-		}
+		lesions: {}
 	},
 	hints = {};
+
+b.lesions[1] = {
+	size: ['', '', ''],
+	loc: '',
+	type: '',
+	values: [],
+	text: ''
+};
 
 $(document).ready(function() {
 
@@ -154,9 +154,17 @@ b.generateText = function() {
 				.replace(/(mass( enhancement)?)/, '$1 in the ' + b.lesions[i+1].loc);
 		}
 
-		if (b.lesions[i+1].size !== '') {
+		if (b.lesions[i+1].size.toString() !== ',,') {
+			var tempSizes = [];
+
+			for (j = 0; j < 3; j++) {
+				if (b.lesions[i+1].size[j] !== '') {
+					tempSizes.push(b.lesions[i+1].size[j]);
+				}
+			}
+
 			b.lesions[i+1].text = b.lesions[i+1].text
-				.replace(/(mass( enhancement)?)/, '$1 measuring ' + b.lesions[i+1].size);
+				.replace(/(mass( enhancement)?)/, '$1 measuring ' + tempSizes.join(' x ') + ' cm');
 		}
 
 		report += (i+1) + '. ' + b.lesions[i+1].text + '<br>';
@@ -191,7 +199,9 @@ b.loadData = function() {
 
 	// load size/loc
 	if (b.lesions[lesionNumber].size !== '') {
-		$('#inputSize').val(b.lesions[lesionNumber].size);
+		$('#inputSize0').val(b.lesions[lesionNumber].size[0]);
+		$('#inputSize1').val(b.lesions[lesionNumber].size[1]);
+		$('#inputSize2').val(b.lesions[lesionNumber].size[2]);
 	}
 	if (b.lesions[lesionNumber].loc !== '') {
 		$('#inputLoc').val(b.lesions[lesionNumber].loc);
@@ -209,7 +219,9 @@ b.saveData = function() {
 	var lesionNumber = $('#lesionList button.active').attr('id').substring(6);
 
 	// store lesion size/loc
-	b.lesions[lesionNumber].size = $('#inputSize').val();
+	b.lesions[lesionNumber].size[0] = $('#inputSize0').val();
+	b.lesions[lesionNumber].size[1] = $('#inputSize1').val();
+	b.lesions[lesionNumber].size[2] = $('#inputSize2').val();
 	b.lesions[lesionNumber].loc = $('#inputLoc').val();
 
 	// store lesion type
@@ -242,7 +254,7 @@ $('#btnAddLesion').click(function() {
 	$('#lesionSection > div').hide('slow');
 
 	// add object data
-	b.lesions[lesionNumber] = {size: '', loc: '', type: '', values: [], text: ''};
+	b.lesions[lesionNumber] = {size: ['','',''], loc: '', type: '', values: [], text: ''};
 
 	// add button
 	$('#lesionList').append(
@@ -282,7 +294,8 @@ $('#btnRemLesion').click(function() {
 	} else {	// if there is only one lesion
 		// return;
 		b.clearButtons();
-		b.lesions[1].type = b.lesions[1].size = b.lesions[1].loc = b.lesions[1].text = '';
+		b.lesions[1].type = b.lesions[1].loc = b.lesions[1].text = '';
+		b.lesions[1].size = ['','',''];
 		b.lesions[1].values = [];
 		b.generateText();
 	}

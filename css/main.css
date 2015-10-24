@@ -10,8 +10,8 @@ input {
 	max-width: 20em;
 }
 
-#inputSize {
-	width: 12em;
+.sz {
+	width: 3.5em;
 	max-width: 100%;
 }
 
