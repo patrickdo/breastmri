@@ -357,53 +357,83 @@ b.initHints = function () {
 		var cases = {
 			'Round': function() {
 				po.title = 'Shape: <b>Round</b>';
-				po.content = 'Spherical, ball-shaped, circular, or globular';
+				po.content = 'Spherical, ball-shaped, circular, or globular.';
 			},
 			'Oval': function() {
-				po.title = 'Shape: <b>Oval</b>';
-				po.content = 'Elliptical or egg-shaped (may include 2 or 3 undulations, i.e. "gently lobulated" or "macrolobulated")';
+				po.title = 'Shape: <b>Oval</b> (includes lobulated)';
+				po.content = 'Elliptical or egg-shaped (may include 2 or 3 undulations, i.e. "gently lobulated" or "macrolobulated").';
 			},
 			'Irregular': function() {
 				if (thisBtn.closest('div').id === "shape") {
 					po.title = 'Shape: <b>Irregular</b>';
-					po.content = 'Neither round nor oval<br><img src="img/irregshape.jpg">';
+					po.content = 'Neither round nor oval.<br><i>For MRI, use of this descriptor usually implies a suspicious finding.</i><br><img src="img/irregshape.jpg">';
 				} else if (thisBtn.closest('div').id === "margin") {
 					po.title = 'Margin: <b>Irregular</b>';
-					po.content = 'Uneven margin can be round or jagged (not smooth or spiculated)';
+					po.content = 'Edges that are either uneven or jagged but not spiculated.<br><i>Use of this descriptor implies a suspicious finding.</i>';
 				}
 			},
 			'Circumscribed': function() {
-				po.title = 'Margin: <b>Circumscribed</b>';
-				po.content = 'A margin that is well defined or sharp, with an abrupt transition between the lesion and surrounding tissue';
+				po.title = 'Margin: <b>Circumscribed</b> (smooth)';
+				po.content = 'Sharply demarcated with an abrupt transition between the lesion and the surrounding tissue. For MRI, the entire margin must be well defined. A mass for which any portion of the margin is not circumscribed should be clarified on the basis of the more suspicious finding.';
 			},
 			'Spiculated': function() {
 				po.title = 'Margin: <b>Spiculated</b>';
-				po.content = 'Margin is formed or characterized by sharp lines projecting from the mass<br><img src="img/spiculated.jpg" align="center">';
+				po.content = 'Characterized by lines radiating from the mass.<br><i>Use of this descriptor implies a suspicious finding.</i><br><img src="img/spiculated.jpg" align="center">';
+			},
+			'Focal': function() {
+				po.title = 'Distribution:<br><b>Focal</b>';
+				po.content = 'Enhancement in a confined area. Part of the definition of focal is that it occupies less than a breast quadrant volume and has fat or normal glandular tissue interspersed between the abnormally enhancing components (exception: focal homogeneous enhancement).';
+			},
+			'Linear': function() {
+				po.title = 'Distribution:<br><b>Linear</b>';
+				po.content = 'Enhancement arrayed in a line (not necessarily a straight line) or a line that branches.<br><i>This distribution may elevate suspicion for malignancy because it suggests enhancement within or around a duct.</i>';
 			},
 			'Segmental': function() {
-				po.title = 'Distribution: <b>Segmental</b>';
-				po.content = '<img src="img/segmental.jpg">';
+				po.title = 'Distribution:<br><b>Segmental</b>';
+				po.content = 'Enhancement that is triangular or cone shaped with the apex at the nipple.<br><i>Segmental distribution is of concern because it suggests enhancement within or around a duct or ducts and their branches, raising the possibility of extensive or multifocal breast cancer in a lobe or segment of the breast.</i><br><img src="img/segmental.jpg">';
+			},
+			'Regional': function() {
+				po.title = 'Distribution:<br><b>Regional</b>';
+				po.content = 'Enhancement that encompasses more than a single duct system. This descriptor is used for enhancement that occupies a large portion of breast tissue, at least a quadrant.';
+			},
+			'Multiple regions': function() {
+				po.title = 'Distribution:<br><b>Multiple regions</b>';
+				po.content = 'Enhancement in at least two large volumes of tissue, not conforming to a ductal distribution and separated by normal tissue; it involves many areas of geographic enhancement and is patchy in appearance.';
 			},
 			'Diffuse': function() {
-				po.title = 'Distribution: <b>Diffuse</b>';
-				po.content = '<img src="img/diffuse.jpg">';
+				po.title = 'Distribution:<br><b>Diffuse</b>';
+				po.content = 'Enhancement distributed randomly throughout the breast.<br><img src="img/diffuse.jpg">';
 			},
 			'Homogeneous': function() {
 				po.title = 'Internal Enhancement:<br><b>Homogeneous</b>';
-				po.content = 'Confluent uniform enhancement';
+				po.content = 'Confluent, uniform enhancement.';
 			},
 			'Heterogeneous': function() {
-				po.title = 'Internal Enhancement:<br><b>Heterogeneous</b>';
-				po.content = 'Nonuniform enhancement in a random pattern';
+				if (thisBtn.closest('div').id === "menht") {
+					po.title = 'Internal Enhancement:<br><b>Heterogeneous</b>';
+					po.content = 'Nonuniform enhancement with variable signal intensity.';
+				} else if (thisBtn.closest('div').id === "nenht") {
+					po.title = 'Internal Enhancement:<br><b>Heterogeneous</b>';
+					po.content = 'Nonuniform enhancement in a random pattern, separated by areas of normal breast parenchyma or fat.';
+				}
 			},
 			'Rim enhancement': function() {
 				po.title = 'Internal Enhancement:<br><b>Rim enhancement</b>';
-				po.content = 'Enhancement more pronounced at the periphery of mass';
+				po.content = 'Enhancement is more pronounced at the periphery of mass.';
 			},
 			'Dark internal septations': function() {
 				po.title = 'Internal Enhancement:<br><b>Dark internal septations</b>';
-				po.content = 'Dark nonenhancing lines within a mass';
-			}
+				po.content = 'Dark, non-enhancing lines within a mass.<br><i>Non-enhancing dark internal septations are suggestive of fibroadenomas, if the other morphologic and kinetic characteristics support benignity.</i>';
+			},
+			'Clumped': function() {
+				po.title = 'Internal Enhancement:<br><b>Clumped</b>';
+				po.content = 'Cobblestone enhancement of varying shapes and sizes with occasional confluent areas; this pattern may look like grapes if in a focal area, or it may look beaded or like a string of pearls if in a line.<br><i>Use of this descriptor implies suspicion and the need for tissue sampling.</i>';
+			},
+			'Clustered ring': function() {
+				po.title = 'Internal Enhancement:<br><b>Clustered ring</b>';
+				po.content = 'Thin rings of enhancement clustered together around the ducts. Enhancement in the periductal stroma, best seen on high-resolution images, implies a suspicious finding.';
+			},
+
 		};
 
 		// run through lookup table
