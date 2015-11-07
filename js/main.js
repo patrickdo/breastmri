@@ -11,6 +11,7 @@ b.lesions[1] = {
 	size: ['', '', ''],
 	loc: '',
 	type: '',
+	side: '',
 	values: [],
 	text: ''
 };
@@ -81,7 +82,7 @@ b.generateText = function() {
 				((mMargin !== '' && mIE !== '') ? mMargin + ' and ' + mIE : (mMargin || '') + (mIE || '')) +
 				'. ' +
 				(
-					(mKI === '' && mKD === '') ? '' : 'The mass exhibits ' +
+					(mKI === '' && mKD === '') ? '' : 'This mass exhibits ' +
 					(mKI + ' ' || '') +
 					'enhancement' +
 					(' ' + mKD || '') +
@@ -136,7 +137,7 @@ b.generateText = function() {
 				(nIE + ' ' || '') +
 				'non-mass enhancement. ' +
 				(
-					(nKI === '' && nKD === '') ? '' : 'The non-mass enhancement exhibits ' +
+					(nKI === '' && nKD === '') ? '' : 'This non-mass enhancement exhibits ' +
 					(nKI + ' ' || '') +
 					'enhancement' +
 					(' ' + nKD || '') +
@@ -150,11 +151,11 @@ b.generateText = function() {
 			// return;
 		}
 
-		if (b.lesions[i+1].loc !== '') {
-			b.lesions[i+1].text = b.lesions[i+1].text
-				.replace(/(mass( enhancement)?)/, '$1 in the ' + b.lesions[i+1].loc);
-		}
 
+		// after mass/nme text has been generated
+		var tempSzSdLoc = '';
+
+		// add size
 		if (b.lesions[i+1].size.toString() !== ',,') {
 			tempSizes = [];
 
@@ -163,19 +164,36 @@ b.generateText = function() {
 					tempSizes.push(b.lesions[i+1].size[j]);
 				}
 			}
-
-			b.lesions[i+1].text = b.lesions[i+1].text
-				.replace(/(mass( enhancement)?)/, '$1 measuring ' + tempSizes.join(' x ') + ' cm');
+			tempSzSdLoc += ' measuring ' + tempSizes.join(' x ') + ' cm';
 		}
 
+		// add side/loc
+		if (b.lesions[i+1].side !== '' || b.lesions[i+1].loc !== '') {
+			tempSzSdLoc += ' in the';
+		}
+		if (b.lesions[i+1].side !== '') {
+			tempSzSdLoc += ' ' + b.lesions[i+1].side + ' breast';
+		}
+		if (b.lesions[i+1].loc !== '') {
+			tempSzSdLoc += ' ' + b.lesions[i+1].loc + ' o\'clock position';
+		}
+
+		b.lesions[i+1].text = b.lesions[i+1].text
+			.replace(/(mass( enhancement)?)/, '$1' + tempSzSdLoc);
+
+		// add lesion number, e.g. L1, R2
+		if (b.lesions[i+1].side !== '') {
+			report += ((b.lesions[i+1].side === 'left') ? 'L' : 'R');
+		}
 		report += (i+1) + '. ' + b.lesions[i+1].text + '<br>';
+
 	} // END CYCLE
 
 	$('#textareaReport').html(report);
 };
 
 b.clearButtons = function() {
-	$('#lesionSection button, #lesionType button').removeClass('active');
+	$('#lesionSection button, #lesionType button, #lesionSide button').removeClass('active');
 	$('#divSizeLoc input').val('');
 };
 
@@ -194,7 +212,12 @@ b.loadData = function() {
 		$('#lesionSection > div').hide('slow');
 	}
 
-	// load size/loc
+	// load side/size/loc
+	$('#lesionSide button').each(function() {
+		if (this.value === b.lesions[lesionNumber].side) {
+			$(this).addClass('active').siblings().removeClass('active');
+		}
+	});
 	if (b.lesions[lesionNumber].size !== '') {
 		$('#inputSize0').val(b.lesions[lesionNumber].size[0]);
 		$('#inputSize1').val(b.lesions[lesionNumber].size[1]);
@@ -224,6 +247,9 @@ b.saveData = function() {
 	// store lesion type
 	b.lesions[lesionNumber].type = $('#lesionType button.active').val();
 
+	// store lesion side
+	b.lesions[lesionNumber].side = $('#lesionSide button.active').val() || '';
+
 	// store descriptor buttons
 	b.lesions[lesionNumber].values = [];
 	$('#lesionSection div:visible button').each(function(index) {
@@ -251,7 +277,7 @@ $('#btnAddLesion').click(function() {
 	$('#lesionSection > div').hide('slow');
 
 	// add object data
-	b.lesions[lesionNumber] = {size: ['','',''], loc: '', type: '', values: [], text: ''};
+	b.lesions[lesionNumber] = {size: ['','',''], side: '', loc: '', type: '', values: [], text: ''};
 
 	// add button
 	$('#lesionList').append(
