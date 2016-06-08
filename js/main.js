@@ -22,17 +22,14 @@ b.update = function() {
 b.getData = function() {
 	var lesionType = $('#lesion button.active').val();
 
-	if (lesionType === 'focus') {
-		//
-	} else if (lesionType === 'mass') {
+	if (lesionType === 'mass') {
 		b.lesions[0].text =
-			'There is ' + ($('#shape button.active').val() || '***') +
+			'There is a T2-' + ($('#mt2 button.active').val() || '***') +
+			' ' + ($('#shape button.active').val() || '***') +
 			' mass with ' + ($('#margin button.active').val() || '***') +
-			' margins. This mass is ' + ($('#mt2 button.active').val() || '***') +
-			' on T2-weighted images, with ' + ($('#menht button.active').val() || '***') +
-			' and exhibiting ' + ($('#minitial button.active').val() || '***') +
-			' initial phase and ' + ($('#mdelayed button.active').val() || '***') +
-			' delayed phase kinetics.';
+			' margins and ' + ($('#menht button.active').val() || '***') +
+			'. The mass exhibits ' + ($('#minitial button.active').val() || '***') +
+			' enhancement ' + ($('#mdelayed button.active').val() || '***') + '.';
 	} else if (lesionType === 'nme') {
 		b.lesions[0].text =
 			'There is non-mass enhancement in ' + ($('#dist button.active').val() || '***') +
@@ -71,6 +68,46 @@ $('#btnReset').click(function() {
 	b.lesions[0].text = '';
 	b.update();
 	$('#lesionSection > div').hide('slow');
+});
+
+
+// hover over first row labels to display reference image
+$(".hover").hover(
+	//hover() fn 1 = onmouseover
+	function(e) {
+		var imageFilenames =
+			{
+				"a segmental distribution":				"segmental",
+				"diffusely":							"diffuse",
+				"spiculated":							"spiculated",
+				"irregular":							"irregshape",
+				"Central disc protrusion":				"cdp",
+				"Left central disc protrusion":			"lcdp",
+				"Left subarticular disc protrusion":	"lsadp",
+				"Left foraminal disc protrusion":		"lfdp"
+			};
+
+		$("body").append(
+			"<p id='hoverImage'><img src='img/" +
+			imageFilenames[this.value] +
+			".jpg'/></p>");
+		$("#hoverImage")
+			.css("position", "absolute")
+			.css("top", (e.pageY - 15) + "px")
+			.css("left", (e.pageX - 50) + "px")
+			.css("transform", "scale(0.75)")
+			.fadeIn("fast");
+	},
+	// hover() fn 2 = onmouseout
+	function() {
+		$("#hoverImage").remove();
+	});
+
+// reference images follow mouse cursor
+$(".hover").mousemove(function (e) {
+	$("#hoverImage")
+		.css("top", (e.pageY - 15) + "px")
+		.css("left", (e.pageX - 20) + "px");
 });
 
 

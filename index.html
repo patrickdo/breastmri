@@ -37,7 +37,6 @@
 		<div class="panel-heading">
 			<legend>Type of lesion</legend>
 			<div class="btn-group" id="lesion">
-				<button class="btn btn-primary" type="radio" value="focus" id="btnFocus">Focus</button>
 				<button class="btn btn-primary" type="radio" value="mass" id="btnMass">Mass</button>
 				<button class="btn btn-primary" type="radio" value="nme" id="btnNME">Non-mass enhancement</button>
 			</div>
@@ -88,45 +87,11 @@
 
 <!-- enclose the three main pathology type divs -->
 <section id="lesionSection">
-<!-- FOCUS -->
-<div class="container" id="divFocus">
-	<legend>Focus</legend>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-		</div>
-		<div class="panel-body">
-		</div>
-	</div>
-</div>
 
 <!-- MASS -->
 <div class="container" id="divMass">
 	<legend>Mass</legend>
 	<div class="panel panel-default">
-
-		<!-- MASS-SHAPE -->
-		<div class="panel-heading">
-			<h2 class="panel-title">Shape</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="shape">
-				<button class="btn btn-success" type="radio" value="a round">Round</button>
-				<button class="btn btn-success" type="radio" value="an oval">Oval</button>
-				<button class="btn btn-success" type="radio" value="an irregular">Irregular</button>
-			</div>
-		</div>
-
-		<!-- MASS-MARGIN -->
-		<div class="panel-heading">
-			<h2 class="panel-title">Margin</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="margin">
-				<button class="btn btn-primary" type="radio" value="circumscribed">Circumscribed</button>
-				<button class="btn btn-primary" type="radio" value="irregular">Irregular</button>
-				<button class="btn btn-primary" type="radio" value="spiculated">Spiculated</button>
-			</div>
-		</div>
 
 		<!-- MASS-T2 SIGNAL -->
 		<div class="panel-heading">
@@ -140,14 +105,38 @@
 			</div>
 		</div>
 
+		<!-- MASS-SHAPE -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Shape</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="shape">
+				<button class="btn btn-success" type="radio" value="round">Round</button>
+				<button class="btn btn-success" type="radio" value="oval">Oval</button>
+				<button class="btn btn-success hover" type="radio" value="irregular">Irregular</button>
+			</div>
+		</div>
+
+		<!-- MASS-MARGIN -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Margin</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="margin">
+				<button class="btn btn-primary" type="radio" value="circumscribed">Circumscribed</button>
+				<button class="btn btn-primary hover" type="radio" value="irregular">Irregular</button>
+				<button class="btn btn-primary hover" type="radio" value="spiculated">Spiculated</button>
+			</div>
+		</div>
+
 		<!-- MASS-INTERNAL ENHANCEMENT -->
 		<div class="panel-heading">
 			<h2 class="panel-title">Internal enhancement</h2>
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="menht">
-				<button class="btn btn-info" type="radio" value="homogeneous internal enhancement">Homogeneous</button>
-				<button class="btn btn-info" type="radio" value="heterogeneous internal enhancement">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="homogeneous enhancement">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous enhancement">Heterogeneous</button>
 				<button class="btn btn-info" type="radio" value="rim enhancement">Rim enhancement</button>
 				<button class="btn btn-info" type="radio" value="dark internal septations">Dark internal septations</button>
 			</div>
@@ -161,14 +150,14 @@
 			<div class="container btn-group" id="minitial">
 				<div>Initial phase:</div>
 				<button class="btn btn-danger" type="radio" value="slow">Slow</button>
-				<button class="btn btn-danger" type="radio" value="medium">Medium</button>
-				<button class="btn btn-danger" type="radio" value="fast">Fast</button>
+				<button class="btn btn-danger" type="radio" value="gradual">Gradual</button>
+				<button class="btn btn-danger" type="radio" value="rapid">Rapid</button>
 			</div>
 			<div class="container btn-group" id="mdelayed">
 				<div>Delayed phase:</div>
-				<button class="btn btn-danger" type="radio" value="persistent">Persistent</button>
-				<button class="btn btn-danger" type="radio" value="plateau">Plateau</button>
-				<button class="btn btn-danger" type="radio" value="washout">Washout</button>
+				<button class="btn btn-danger" type="radio" value="that persists">Persistent</button>
+				<button class="btn btn-danger" type="radio" value="that plateaus">Plateau</button>
+				<button class="btn btn-danger" type="radio" value="with washout">Washout</button>
 			</div>
 		</div>
 
@@ -180,21 +169,6 @@
 <div class="container" id="divNME">
 	<legend>Non-mass enhancement</legend>
 	<div class="panel panel-default">
-
-		<!-- NME-DISTRIBUTION -->
-		<div class="panel-heading">
-			<h2 class="panel-title">Distribution</h2>
-		</div>
-		<div class="panel-body">
-			<div class="btn-group" id="dist">
-				<button class="btn btn-success" type="radio" value="a focal distribution">Focal</button>
-				<button class="btn btn-success" type="radio" value="a linear distribution">Linear</button>
-				<button class="btn btn-success" type="radio" value="a segmental distribution">Segmental</button>
-				<button class="btn btn-success" type="radio" value="a regional distribution">Regional</button>
-				<button class="btn btn-success" type="radio" value="multiple regions">Multiple regions</button>
-				<button class="btn btn-success" type="radio" value="diffusely">Diffuse</button>
-			</div>
-		</div>
 
 		<!-- NME-T2 SIGNAL -->
 		<div class="panel-heading">
@@ -208,14 +182,29 @@
 			</div>
 		</div>
 
+		<!-- NME-DISTRIBUTION -->
+		<div class="panel-heading">
+			<h2 class="panel-title">Distribution</h2>
+		</div>
+		<div class="panel-body">
+			<div class="btn-group" id="dist">
+				<button class="btn btn-success" type="radio" value="a focal distribution">Focal</button>
+				<button class="btn btn-success" type="radio" value="a linear distribution">Linear</button>
+				<button class="btn btn-success hover" type="radio" value="a segmental distribution">Segmental</button>
+				<button class="btn btn-success" type="radio" value="a regional distribution">Regional</button>
+				<button class="btn btn-success" type="radio" value="multiple regions">Multiple regions</button>
+				<button class="btn btn-success hover" type="radio" value="diffusely">Diffuse</button>
+			</div>
+		</div>
+
 		<!-- NME-INTERNAL ENHANCEMENT -->
 		<div class="panel-heading">
 			<h2 class="panel-title">Internal enhancement</h2>
 		</div>
 		<div class="panel-body">
 			<div class="btn-group" id="nenht">
-				<button class="btn btn-info" type="radio" value="homogeneous internal">Homogeneous</button>
-				<button class="btn btn-info" type="radio" value="heterogeneous internal">Heterogeneous</button>
+				<button class="btn btn-info" type="radio" value="homogeneous">Homogeneous</button>
+				<button class="btn btn-info" type="radio" value="heterogeneous">Heterogeneous</button>
 				<button class="btn btn-info" type="radio" value="clumped">Clumped</button>
 				<button class="btn btn-info" type="radio" value="clustered ring">Clustered ring</button>
 			</div>
@@ -260,7 +249,7 @@
 <hr>
 <FOOTER>
 	<div class="container">
-		<p>&copy; Patrick Do 2014</p>
+		<p>&copy; 2015 <a href="mailto:patrickdo@gmail.com?Subject=Breast%20MRI%20Report%20Generator">Patrick Do</a> and Jennifer Trinh Leung</p>
 		<p><a href="http://www.acr.org/~/media/ACR/Documents/PDF/QualitySafety/Resources/BIRADS/Posters/BIRADS%20Reference%20Card_web_F.pdf" target="new">BI-RADS 5 Quick Reference Card</a></p>
 	</div>
 </FOOTER>

@@ -6,7 +6,7 @@ h1 {
 	text-align: center;
 }
 
-#divFocus, #divMass, #divNME {
+#divMass, #divNME {
 	display: none;
 }
 
